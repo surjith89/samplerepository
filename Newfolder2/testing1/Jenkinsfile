@@ -1,13 +1,8 @@
-env.ARTIFACT_LOCATION = "/output/${env.BUILD_TAG}"
-env.LOCAL_CONTAINER = "${env.BUILD_TAG}"
-env.REGION = 'us-east-1'
-env.PROJECT_PATH = 'test-utils/'
-env.ACTION = params.action
-env.ENVIRONMENT = params.environment
-def mvn_version = 'M3'
-
 node {
+    env.JAVA_HOME="${tool 'JDK8'}"
+    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+
     stage ('Checkout') {
         checkout scm
-            }
- }
+        }
+		}
